@@ -3,7 +3,7 @@
 # Use arrays to write roster script. The script should do the following:
 # For each day of the week, prompt the user "enter janitor name for day"
 # Store the names in an associative array, where weekdays are used as the key, and janitors names  as the value
-# TODO: After prompting for the janitor names, the script should print the roster for this week
+# After prompting for the janitor names, the script should print the roster for this week
 
 WEEK=('Monday' 'Tuesday' 'Wednesday' 'Thursday' 'Friday' 'Saturday' 'Sunday')
 declare -A ROSTER
