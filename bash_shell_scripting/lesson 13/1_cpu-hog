@@ -11,7 +11,7 @@
 while true
 do
 	# Check every 60 seconds if we have a process causing high CPU load
-	sleep 60
+	sleep 6
 	USAGE=`ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1 | awk '{ print $1 } '`
 	USAGE=${USAGE%.*}
 	PID=`ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1 | awk '{print $2 }'`
@@ -34,6 +34,6 @@ do
 		# Now we have variables with the old process information and with the
 		# new information
 
-		[ $USAGE2 -gt 80 ] && [ $PID1 = $PID2 ] && mail -s "CPU load of $PNAME is above 80%" root@blah.com < .
+		[ $USAGE2 -gt 80 ] && [ $PID1 = $PID2 ] && logger "CPU load of $PNAME is above 80%"
 	fi
 done
