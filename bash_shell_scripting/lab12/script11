@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Debug script 11 code and fix it
+
 COUNTER=$1
 COUNTER=$(( COUNTER * 60 ))
 
