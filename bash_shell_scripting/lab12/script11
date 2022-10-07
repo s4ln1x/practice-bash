@@ -3,22 +3,22 @@
 COUNTER=$1
 COUNTER=$(( COUNTER * 60 ))
 
-minusone()({
-	COUNNTER=$(( COUNTER - 1 ))
+minus_one(){
+	COUNTER=$(( COUNTER - 1 ))
 	sleep 1
 }
 
 while [ $COUNTER -gt 0 ]
 do
 	echo you still have $COUNTER seconds left
-	minusonne
+	minus_one
 done
 
-[ $COUNTER = 0 ] && echo time is up && minusone
-[ $COUNTER = "-1" ] && echo you now are one second late && minusone
+[ $COUNTER = 0 ] && echo time is up && minus_one
+[ $COUNTER = "-1" ] && echo you now are one second late && minus_one
 
 while true
 do
 	echo you now are ${COUNTER#-} seconds late
-	minusone
+	minus_one
 done
