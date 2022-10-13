@@ -3,7 +3,7 @@
 # For this file we need to analyze how to improve the script
 
 # Script that monitors the top-active process. The script sends an email to the user root if
-# utilization of the top active process goed beyond 80%. Of course, this script can be tuned to 
+# utilization of the top active process goes beyond 80%. Of course, this script can be tuned to
 # do anything else in such a case.
 #
 # Start the script, and it will run forever.
