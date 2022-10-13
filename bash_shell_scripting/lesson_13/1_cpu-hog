@@ -26,14 +26,18 @@ do
 		PID1=$PID
 		PNAME1=$PNAME
 		sleep 7
-		USAGE2=`ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1 | awk '{ print $1 } '`
-		USAGE2=${USAGE2%.*}
-		PID2=`ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1 | awk '{print $2 }'`
-		PNAME2=`ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1 | awk '{print $3 }'`
+#		USAGE2=`ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1 | awk '{ print $1 } '`
+#		USAGE2=${USAGE2%.*}
+#		PID2=`ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1 | awk '{print $2 }'`
+#		PNAME2=`ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1 | awk '{print $3 }'`
+    PINFO2=( $(ps -eo pcpu,pid -o comm= | sort -k1 -n -r | head -1) )
+    PUSAGE2="${PINFO[0]%%.*}"
+    PID2="${PINFO[1]}"
+    PNAME2="${PINFO[2]}"
 		
 		# Now we have variables with the old process information and with the
 		# new information
 
-		[ $USAGE2 -gt 80 ] && [ $PID1 = $PID2 ] && logger "CPU load of $PNAME is above 80%"
+		[ $PUSAGE2 -gt 80 ] && [ $PID1 = $PID2 ] && logger "CPU load of $PNAME is above 80%"
 	fi
 done
